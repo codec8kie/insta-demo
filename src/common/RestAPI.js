@@ -21,9 +21,10 @@ async function RestAPI() {
     });
 
     setItem('RestAPI', API);
-    return '성공';
+    return true;
   } catch (error) {
-    return console.error(error);
+    console.error(error);
+    return false;
   }
 }
 

@@ -25,7 +25,7 @@ export const _Fetch = (api, query = '', body) => {
 };
 
 const _getFetch = url => {
-  console.log(JSON.parse(getCookie('userData')));
+  // console.log(JSON.parse(getCookie('userData')));
   var userData = getCookie('userData')
     ? JSON.parse(getCookie('userData'))
     : false;

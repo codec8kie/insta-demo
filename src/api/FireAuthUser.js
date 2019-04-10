@@ -1,4 +1,4 @@
-import firebase from 'firebase';
+import firebase from 'firebase/app';
 import { _Fetch, setCookie } from './FireAuthUserUtils';
 
 /**
@@ -22,11 +22,8 @@ import { _Fetch, setCookie } from './FireAuthUserUtils';
  */
 
 class FireAuthUser {
-  constructor(server, appName, config) {
+  constructor(server, appName ) {
     // firebase 중복 초기화 방지
-    if (firebase.apps.length === 0) {
-      firebase.initializeApp(config);
-    }
     this.server = server;
 
     this.getData(server + '/' + appName + '/restapi/auth_desc');
@@ -154,11 +151,11 @@ class FireAuthUser {
   /*************************************************
    * @description 계정 삭제
    * @property {bodyData} => 유저 삭제에 필요한 bodyData
-   * 
+   *
    * bodyData = {
-      pw       : 
-      uid      : 
-      pid_user : 
+      pw       :
+      uid      :
+      pid_user :
     }
    *************************************************/
   async cancelAccount(bodyData) {
